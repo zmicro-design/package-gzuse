@@ -1,0 +1,33 @@
+#!/bin/bash
+
+help() {
+  echo "Usage:"
+  echo "  zmicro gzuse <args ...>"
+  echo ""
+
+  gzuse --help
+}
+
+version() {
+  gzuse --version
+}
+
+core() {
+  case $1 in
+  -h | --help | help)
+    help
+    ;;
+  -v | --version | version)
+    version
+    ;;
+  *)
+    gzuse "$@"
+    ;;
+  esac
+}
+
+run() {
+  core "$@"
+}
+
+run "$@"
